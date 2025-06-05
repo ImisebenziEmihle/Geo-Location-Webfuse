@@ -1,10 +1,24 @@
 {
-	"id": "geo-onboarding",
-	"name": "Geo Location Onboarding",
-	"description": "Walkthrough for enabling Connectivity app in Webfuse",
-	"version": "1.0.0",
-	"match": ["*://iplocation.net/*"],
-	"script": "content.js",
-	"env": [],
-	"runAt": "document_idle"
+	"manifest_version": 3,
+	"name": "Webfuse Geolocation Walkthrough",
+	"version": "1.0",
+	"description": "Onboarding tour for using the Connectivity App in Webfuse to simulate browsing from different regions.",
+	"permissions": ["storage", "clipboardWrite"],
+	"host_permissions": ["https://iplocation.com/*"],
+	"content_scripts": [
+		{
+			"matches": ["https://iplocation.com/*"],
+			"js": ["content.js"]
+		}
+	],
+	"web_accessible_resources": [
+		{
+			"resources": [
+				"media/screenshot-1.png",
+				"media/screenshot-2.png",
+				"media/screenshot-3.png"
+			],
+			"matches": ["https://iplocation.com/*"]
+		}
+	]
 }
